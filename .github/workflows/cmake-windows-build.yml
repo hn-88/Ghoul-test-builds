@@ -20,7 +20,13 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
+        repository: 'hn-88/Ghoul'
         submodules: 'recursive'
+        ref: 'patch-1'
+
+    - name: patch glbinding
+      run: |
+        cp -v ext-glbinding-source-glbinding-include-glbinding-Boolean8.inl ext/glbinding/source/glbinding/include/glbinding/Boolean8.inl
     
     - name: Install dependencies
       # https://docs.openspaceproject.com/releases-v0.20/contribute/development/compiling/windows.html
