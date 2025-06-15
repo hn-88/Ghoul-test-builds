@@ -22,7 +22,7 @@ jobs:
       with:
         repository: 'hn-88/Ghoul'
         submodules: 'recursive'
-        ref: 'patch-1'
+        ref: 'MacOSfixes'
 
     - name: patch glbinding
       run: |
