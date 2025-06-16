@@ -1,0 +1,25 @@
+name: macos14-syncstream-test
+
+on: workflow_dispatch
+
+env:
+  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+  # This yml is copied from https://github.com/hn-88/OCVWarp/blob/master/.github/workflows/cmake-nix.yml
+  # and modified.
+  BUILD_TYPE: Release
+  
+jobs:
+  test:
+    # The CMake configure and build commands are platform agnostic and should work equally well on Windows or Mac.
+    # You can convert this to a matrix build if you need cross-platform coverage.
+    # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
+    runs-on: macos-14
+
+    steps:
+    - name: test for syncstream
+      # https://docs.openspaceproject.com/releases-v0.20/contribute/development/compiling/ubuntu.html
+      run: |
+        echo '#include <syncstream>' | clang++ -std=c++20 -x c++ -c -
+        
+    
+       
